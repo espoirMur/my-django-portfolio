@@ -9,6 +9,8 @@ media
 .venv3
 .venv3.*
 .env
+**.pyc
+
 
 # Static files
 node_modules
