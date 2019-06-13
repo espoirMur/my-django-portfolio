@@ -83,7 +83,7 @@ ROOT_URLCONF = 'conf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["../my-django-portofolio/templates"],
+        'DIRS': ["../my-django-portfolio/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
