@@ -65,7 +65,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.projects',
-    'apps.blog'
+    'rest_framework',
+    'apps.blog',
+    'apis.users'
 ]
 
 MIDDLEWARE = [
@@ -157,3 +159,5 @@ LOGGING = {
         }
     }
 }
+
+AUTH_USER_MODEL = "users.User"

@@ -16,10 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.documentation import include_docs_urls
 
+from .views import api_root
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('projects/', include('apps.projects.urls')),
-    path('blog/', include('apps.blog.urls'))
+    path('blog/', include('apps.blog.urls')),
+    url(r'^docs/', include_docs_urls(title='Todo API',
+                                     description='RESTful API for Todo')),
+
+    url(r'^$', api_root),
+    url(r'^', include(('apis.users.urls', 'users'), namespace='users')),
 ]
