@@ -12,7 +12,7 @@ class UserSerializers(serializers.HyperlinkedModelSerializer):
         user.set_password(validated_data.get('password', None))
         user.save()
         return user
-    
+
     def update(self, instance, validated_data):
         for field in validated_data:
             if field == 'password':
@@ -21,7 +21,7 @@ class UserSerializers(serializers.HyperlinkedModelSerializer):
                 instance.__setattr__(field, validated_data.get(field))
         instance.save()
         return instance
-    
+
     class Meta:
         model = User
         fields = ('url', 'id', 'username',
@@ -33,5 +33,3 @@ class UserSerializers(serializers.HyperlinkedModelSerializer):
                 'view_name': 'users:user-detail',
             }
         }
-
-

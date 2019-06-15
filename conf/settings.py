@@ -67,7 +67,8 @@ INSTALLED_APPS = [
     'apps.projects',
     'rest_framework',
     'apps.blog',
-    'apis.users'
+    'apis.users',
+    'apis.music'
 ]
 
 MIDDLEWARE = [
@@ -85,7 +86,7 @@ ROOT_URLCONF = 'conf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["../my-django-portfolio/templates"],
+        'DIRS': ["../{}/templates".format(BASE_DIR)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
