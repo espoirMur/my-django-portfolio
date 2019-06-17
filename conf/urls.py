@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include, re_path
+from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework.documentation import include_docs_urls
 
 from .views import api_root
@@ -30,3 +31,5 @@ urlpatterns = [
     url(r'^$', api_root),
     url(r'^', include(('apis.users.urls', 'users'), namespace='users')),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
