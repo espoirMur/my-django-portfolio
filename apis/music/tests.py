@@ -44,9 +44,8 @@ class PostSongTest(BaseviewTestCase):
 
     def test_create_valid_song(self):
         valid_song = {'title': '48H Gecoco', 'artist': 'JB Mpianna'}
-        response = self.client.post(reverse('songs-crud', kwargs={
-            'version': 'v1',
-            'pk': 1}), data=json.dumps(
+        response = self.client.post(reverse('songs-all', kwargs={
+            'version': 'v1'}), data=json.dumps(
             valid_song), content_type='application/json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
@@ -54,10 +53,9 @@ class PostSongTest(BaseviewTestCase):
         invalid_song = {'title': '', 'artist': 'JB Mpianna'}
         response = self.client.post(
             reverse(
-                'songs-crud',
+                'songs-all',
                 kwargs={
-                    'version': 'v1',
-                    'pk': 1}),
+                    'version': 'v1'}),
             data=json.dumps(invalid_song),
             content_type='application/json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

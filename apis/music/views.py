@@ -7,7 +7,7 @@ from apis.music.models import Song
 from .serializers import SongsSerializer
 
 
-class ListSongs(generics.ListAPIView):
+class ListSongs(generics.ListCreateAPIView):
     """
     provides a get all song method handler
     """
@@ -55,3 +55,8 @@ class SongDetails(APIView):
         song = self.get_song(pk)
         song.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class SongDetailSimple(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Song.objects.all()
+    serializer_class = SongsSerializer

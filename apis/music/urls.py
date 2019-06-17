@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import ListSongs, SongDetails
+from .views import ListSongs, SongDetails, SongDetailSimple
 
 urlpatterns = [
     path('songs/', ListSongs.as_view(), name='songs-all'),
-    path('songs/<int:pk>/', SongDetails.as_view(), name='songs-crud'),
+    path('songs/<int:pk>/', SongDetailSimple.as_view(), name='songs-crud'),
 ]
